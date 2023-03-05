@@ -3,6 +3,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
+import itertools
 
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.metrics import confusion_matrix, classification_report, roc_curve, roc_auc_score
