@@ -1,3 +1,4 @@
+# %% [code]
 # Common functions for training and evaluating models
 
 import pandas as pd
@@ -71,3 +72,10 @@ def plot_confusion_matrix(cm, classes,
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
     plt.grid(False)
+
+def plot_tree_feature_importance(features, importances):
+    df = pd.DataFrame(list(zip(features, importances)), columns=['feature', 'importance']).sort_values(['importance'], ascending=False)
+    plt.figure(figsize=(10,8))
+    clrs = ['green' if (x < max(df.importance)) else 'red' for x in df.importance]
+    sns.barplot(y=df.feature,x=df.importance,palette=clrs).set(title='Important features')
+    plt.show()
